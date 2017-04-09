@@ -25,8 +25,6 @@ function didPathChangeSinceCommit (oid, searchPath, cb) {
       .then((paths) => {
         paths.forEach(({oldPath, newPath}) => console.log('diff', oldPath, newPath))
         const matched = paths.map(path => path.newPath).filter(minimatch.filter(absolutePath, {matchBase: true}))
-        console.error('matched', matched)
-        console.error('path', absolutePath)
         return cb(null, Boolean(matched.length))
       })
       .catch(cb)
