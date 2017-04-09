@@ -1,6 +1,6 @@
 {
   "name": "git-query",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A library for some simple git diff queries",
   "main": "index.js",
   "scripts": {
