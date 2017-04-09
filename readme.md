@@ -13,9 +13,7 @@ Takes the following parameters:
 - `commit`: A git commit sha to do a diff against.
 - `path`: The path you want to check has changed - any valid glob should work.
 
-Returns a `Boolean`.
-  `true` if the path has been affected since a commit.
-  `false` if not.
+Returns a `Boolean`. `true` if the path has been affected since a commit. `false` if not.
 
 ## LICENSE
 
