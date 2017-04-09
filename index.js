@@ -23,8 +23,10 @@ function didPathChangeSinceCommit (oid, searchPath, cb) {
         return {oldPath, newPath}
       }))
       .then((paths) => {
-        const matched = paths.map(path => path.newPath).filter(minimatch.filter(absolutePath, {matchBase: true}))
-        return cb(null, Boolean(matched.length))
+        const filter = minimatch.filter(absolutePath, {matchBase: true})
+        const matched = paths.map(path => path.newPath).filter(filter)
+        const otherMatches = paths.map(path => path.oldPath).filter(filter)
+        return cb(null, Boolean(matched.length) || Boolean(otherMatches.length))
       })
       .catch(cb)
   })
