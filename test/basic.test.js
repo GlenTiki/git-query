@@ -8,3 +8,11 @@ test('The readme changed since the commit that updated the readme', (t) => {
     t.end()
   })
 })
+
+test('The file that should never change has never changed', (t) => {
+  gitQuery.didPathChangeSinceCommit('038c8d01bc1d6c18db25dc5956b3516ef2a79fad', './DO_NOT_MODIFY', (err, changed) => {
+    t.error(err)
+    t.equal(false, changed)
+    t.end()
+  })
+})
